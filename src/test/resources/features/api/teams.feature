@@ -11,7 +11,6 @@ Feature: Team module verifications
       |  11267 | BugBusters |
       |  11269 | PhantomPain |
       |  11275 | Scarface |
-      |  11281 | TheyBite |
       |  11287 | LoafandCamouflage |
       |  11293 | TeaForTwo |
       |  11299 | Galaxina |
