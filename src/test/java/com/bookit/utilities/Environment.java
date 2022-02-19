@@ -4,6 +4,12 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
 
+/**
+ * Dnamically load test data to variables according to the env value.
+ * First checks if "env" value was passed from command line.
+ * If yes, it will use that value.
+ * if not, it will use value in local configuration.properties file
+ */
 public class Environment {
 
         public static final String URL;
@@ -18,10 +24,11 @@ public class Environment {
         public static final String LEADER_EMAIL;
         public static final String LEADER_PASSWORD;
 
-        static {
+        static {  //runs once in the beginning when we use - static block
+            //class to read from .properties files
 
             Properties properties = null;
-            String environment = System.getProperty("environment") != null ? environment = System.getProperty("environment") : ConfigurationReader.getProperty("environment");
+            String environment = System.getProperty("env") != null ? environment = System.getProperty("env") : ConfigurationReader.getProperty("env");
             //String environment = ConfigurationReader.get("environment");
 
             try {

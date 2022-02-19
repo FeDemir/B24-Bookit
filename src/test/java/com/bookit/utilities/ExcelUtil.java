@@ -29,6 +29,21 @@ public class ExcelUtil {
             throw new RuntimeException(e);
         }
     }
+    public ExcelUtil(String path, int sheetIndex) {
+        this.path = path;
+        try {
+            // Open the Excel file
+            FileInputStream ExcelFile = new FileInputStream(path);
+            // Access the required test data sheet
+            workBook = WorkbookFactory.create(ExcelFile);
+            workSheet = workBook.getSheetAt(sheetIndex);
+            // check if sheet is null or not. null means  sheetname was wrong
+            //Assert.assertNotNull(workSheet, "Sheet: \""+sheetName+"\" does not exist\n");
+
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
 
     public String getCellData(int rowNum, int colNum) {
         Cell cell;
